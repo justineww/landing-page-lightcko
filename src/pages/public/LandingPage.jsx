@@ -241,7 +241,7 @@ export default function LandingPage() {
       image: icon1,
       // Awal: 4deg -> Hover: -4deg | Posisi tetap sama, padding diganti width
       className:
-        "bottom-[35%] left-[10%] md:left-[22%] rotate-[4deg] hover:rotate-[-4deg] w-64 md:w-32",
+        "bottom-[35%] left-[10%] md:left-[22%] rotate-[4deg] hover:rotate-[-4deg] w-64 md:w-40",
     },
     {
       name: "Visual Design",
@@ -703,7 +703,7 @@ export default function LandingPage() {
 
           {/* Map Indonesia */}
           <RevealOnScroll delay={200}>
-            <div className="relative w-full max-w-7xl mx-auto -mt-40 mb-0 select-none">
+            <div className="relative w-full max-w-8xl mx-auto -mt-40 mb-0 select-none">
               <img
                 src={mapIndo}
                 alt="Peta Indonesia"
