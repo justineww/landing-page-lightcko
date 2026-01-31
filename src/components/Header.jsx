@@ -63,7 +63,7 @@ const Header = ({ activeSection }) => {
             <img
               src={logoLightCko}
               alt="Logo Light Cko"
-              className="w-15 h-10 object-contain hover:opacity-80 transition-opacity"
+              className="w-64 h-15 object-contain hover:opacity-80 transition-opacity mt-3"
             />
           </a>
 

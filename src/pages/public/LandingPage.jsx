@@ -10,6 +10,9 @@ import slide4 from "../../storage/picture/slide4.jpeg";
 import mapIndo from "../../storage/picture/indo-map.png";
 
 import titleImage from "../../storage/picture/title.png";
+import titleImage1 from "../../storage/picture/title1.png";
+import titleImage2 from "../../storage/picture/title2.png";
+import titleImage3 from "../../storage/picture/title3.png";
 
 // --- IMPORT GAMBAR LOGO ---
 import aromaitalia from "../../storage/logo/aromaitalia.png";
@@ -95,15 +98,15 @@ const secondRowLogos = clientLogos.slice(15, 30);
 
 // --- STYLE ANIMASI CUSTOM ---
 const customStyles = `
-  /* Animasi Awan Hero */
+  /* --- Animasi Awan Hero (Lama) --- */
   @keyframes cloudFloat {
     0%, 100% { 
       transform: translateY(0) rotate(var(--tw-rotate)); 
-      opacity: 100; 
+      opacity: 1; 
     }
     40%, 50% { 
       transform: translateY(-25px) rotate(var(--tw-rotate)); 
-      opacity: 0.0; 
+      opacity: 0; 
     }
   }
   
@@ -113,13 +116,12 @@ const customStyles = `
     animation-iteration-count: infinite;
   }
 
-  /* Animasi Scroll Marquee Kanan ke Kiri */
+  /* --- Animasi Scroll Marquee (Lama) --- */
   @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* Animasi Scroll Marquee Kiri ke Kanan */
   @keyframes scrollRight {
     0% { transform: translateX(-50%); }
     100% { transform: translateX(0); }
@@ -131,6 +133,21 @@ const customStyles = `
   
   .animate-scroll-right {
     animation: scrollRight 60s linear infinite;
+  }
+  
+  /* Animasi Rotasi Halus (Rocking) */
+  @keyframes subtleRocking {
+    0% { transform: rotate(0deg); }   /* Posisi awal lurus */
+    25% { transform: rotate(2deg); }  /* Miring ke kanan 2 derajat */
+    75% { transform: rotate(-2deg); } /* Miring ke kiri 2 derajat */
+    100% { transform: rotate(0deg); } /* Balik lurus */
+  }
+
+  .animate-rocking {
+    /* Durasi 6 detik agar gerakannya sangat halus dan pelan */
+    animation: subtleRocking 6s ease-in-out infinite;
+    /* Penting: Titik pusat putaran di tengah-tengah gambar */
+    transform-origin: center center;
   }
 `;
 
@@ -224,14 +241,14 @@ export default function LandingPage() {
       image: icon1,
       // Awal: 4deg -> Hover: -4deg | Posisi tetap sama, padding diganti width
       className:
-        "bottom-[33%] left-10%] md:left-[2%] rotate-[4deg] hover:rotate-[-4deg] w-64 md:w-44",
+        "bottom-[35%] left-[10%] md:left-[22%] rotate-[4deg] hover:rotate-[-4deg] w-64 md:w-32",
     },
     {
       name: "Visual Design",
       image: icon2,
       // Awal: -4deg -> Hover: 4deg
       className:
-        "bottom-[48%] left-[17%] md:left-[13%] rotate-[-4deg] hover:rotate-[4deg] hidden md:block w-24 md:w-52",
+        "bottom-[52%] left-[17%] md:left-[13%] rotate-[-4deg] hover:rotate-[4deg] hidden md:block w-24 md:w-52",
     },
     {
       name: "Influencer",
@@ -281,7 +298,7 @@ export default function LandingPage() {
       image: icon9,
       // Posisi baru di atas kanan agar tidak menumpuk
       className:
-        "bottom-[30%] left-[20%] rotate-[6deg] hover:rotate-[-6deg] w-24 md:w-36",
+        "bottom-[33%] left-[2%] rotate-[6deg] hover:rotate-[-6deg] w-24 md:w-64",
     },
   ];
 
@@ -422,7 +439,7 @@ export default function LandingPage() {
       <RevealOnScroll>
         <div
           id="home"
-          className="relative w-full h-[70vh] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center overflow-hidden"
+          className="relative w-full h-[70vh] bg-cover bg-[center_top_20%] bg-no-repeat flex flex-col items-center justify-center overflow-hidden"
           style={{ backgroundImage: `url(${cloudBg})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white z-20 pointer-events-none"></div>
@@ -447,16 +464,37 @@ export default function LandingPage() {
           })}
 
           <div className="relative z-30 text-center px-4 mt-8 md:mt-24">
-            {/* --- BAGIAN YANG DIUBAH (H1 -> IMG) --- */}
-            <img
-              src={titleImage} // Variabel gambar yang di-import tadi
-              alt="Build Better Brands" // Teks alternatif untuk SEO
-              className="w-[80%] md:w-[850px] h-auto object-contain mx-auto mb-[-80px] drop-shadow-sm"
-            />
+            {/* --- 1. DIV PEMBUNGKUS BARU KHUSUS GAMBAR --- */}
+            {/* 'flex-col' menumpuk ke bawah, 'items-center' menengahkan */}
+            <div className="flex flex-col items-center justify-center mb-6 mt-16">
+              <img
+                src={titleImage1}
+                alt="Build Better Brands"
+                // Hapus mx-auto & margin aneh-aneh. Tambahkan 'block'
+                className="block w-[80%] md:w-[550px] h-auto object-contain drop-shadow-sm -mb-[60px]"
+              />
+
+              <div className="w-[80%] md:w-[250px] mx-auto -mb-[60px] translate-x-[-20px]">
+                <div className="animate-rocking origin-center w-full">
+                  <img
+                    src={titleImage2}
+                    alt="Build Better Brands"
+                    className="block w-full h-auto object-contain drop-shadow-sm transition-transform duration-300 ease-in-out hover:scale-110"
+                  />
+                </div>
+              </div>
+
+              <img
+                src={titleImage3}
+                alt="Build Better Brands"
+                className="block w-[80%] md:w-[450px] h-auto object-contain drop-shadow-sm"
+              />
+            </div>
+            {/* --- 2. BAGIAN TEKS (Tetap di luar div gambar) --- */}
             <p className="text-gray-600 text-lg font-Francy md:text-xl mb-1 max-w-2xl mx-auto tracking-wider">
               Partner strategis untuk mengembangkan brand Anda
             </p>
-            <p className="text-gray-600 tex font-Francy md:text-xl -mt-1 mb-10 max-w-2xl mx-auto tracking-wider">
+            <p className="text-gray-600 font-Francy md:text-xl -mt-1 mb-10 max-w-2xl mx-auto tracking-wider">
               melalui social media management, creative campaign, dan digital
               strategy.
             </p>
