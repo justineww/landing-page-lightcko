@@ -8,8 +8,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* TAMBAHKAN BASENAME DI SINI 👇 */}
+    <BrowserRouter basename="/landing-page-lightcko">
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
