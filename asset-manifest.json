@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/landing-page-lightcko/static/css/main.034fae0a.css",
-    "main.js": "/landing-page-lightcko/static/js/main.e80de25f.js",
+    "main.js": "/landing-page-lightcko/static/js/main.253069b8.js",
     "static/media/AWAN.png": "/landing-page-lightcko/static/media/AWAN.4f18678a0ec081853669.png",
     "static/media/indo-map.png": "/landing-page-lightcko/static/media/indo-map.24e4a71888a74bb04c0f.png",
     "static/media/title.png": "/landing-page-lightcko/static/media/title.3e5136721cb8d84cecb1.png",
@@ -51,10 +51,10 @@
     "static/media/yobugo.png": "/landing-page-lightcko/static/media/yobugo.feb454c03aa4950871d2.png",
     "index.html": "/landing-page-lightcko/index.html",
     "main.034fae0a.css.map": "/landing-page-lightcko/static/css/main.034fae0a.css.map",
-    "main.e80de25f.js.map": "/landing-page-lightcko/static/js/main.e80de25f.js.map"
+    "main.253069b8.js.map": "/landing-page-lightcko/static/js/main.253069b8.js.map"
   },
   "entrypoints": [
     "static/css/main.034fae0a.css",
-    "static/js/main.e80de25f.js"
+    "static/js/main.253069b8.js"
   ]
 }
